@@ -1,1 +1,103 @@
+<input id="input" placeholder="Add a new task...">
+<button onclick="add()">Add</button>
+<ul id="list">
+    <li>
+        hello
+        <button onclick="deleteItem(event)">Delete</button>
+    </li>
+</ul>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    #input {
+        width: calc(100% - 40px);
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-left: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f9f9f9;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    li button {
+        background-color: #f44336;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+
+    li button:hover {
+        background-color: #d32f2f;
+    }
+
+    #list {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 400px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<script>
+    var ul = document.getElementById("list");
+    var input = document.getElementById("input");
+
+    function add() {
+        var listitem = document.createElement("li");
+        listitem.innerHTML = input.value + "<button onclick='deleteItem(event)'>Delete</button>";
+        ul.append(listitem);
+        input.value = "";  // Clear the input field after adding
+    }
+
+    function deleteItem(event) {
+        event.target.parentElement.remove();
+    }
+</script>
 
